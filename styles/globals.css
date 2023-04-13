@@ -1,26 +1,62 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.abril-font {
+  font-family: "Abril Fatface", cursive;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.main-color {
+  color: #ff3b1d;
 }
 
-* {
-  box-sizing: border-box;
+.line {
+  border-color: #cccccc;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.border-main {
+  border-bottom: 1px solid #ff3b1d;
 }
+
+/* For Webkit-based browsers (Chrome, Safari and Opera) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.gradient-bg {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.ql-editor {
+  min-height: 420px;
+  max-height: 420px;
+}
+
+.body-p p:first-child::first-letter {
+  color: black;
+  padding: 0.8rem 1rem;
+  margin: 0 0.3rem 0 0;
+  border: 2px solid #ff3b1d;
+  border-radius: 8px;
+    font-family: 'Times New Roman', Times, serif;
+  font-size: 3rem;
+  float: left;
+  line-height: 1;
+}
+
+.ql-video{
+  width: 100%;
+  height: 55.25%;
+}
+
+/* iframe{
+  width: 100%;
+  height: 55.25%;
+
+} */
