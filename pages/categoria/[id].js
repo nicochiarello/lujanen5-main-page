@@ -13,6 +13,7 @@ const Category = ({ category }) => {
   const [nbPages, setNbPages] = useState(1);
   const [blogs, setBlogs] = useState([]);
   const [loader, setLoader] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     setPage(1);
@@ -84,7 +85,7 @@ const Category = ({ category }) => {
         <section className="w-full max-w-[1280px] m-auto h-fit justify-center py-10 flex-col flex items-center gap-16 ">
           {" "}
           <div className="w-full px-2 border font-semibold border-b-gray-400 py-4">
-            <h2 className="text-xl">{category.title}</h2>
+            <h2 className="text-2xl">{category.title}</h2>
           </div>
           <section className="w-full px-2 h-fit rounded-md grid sm:grid-cols-2 md:grid-cols-3 gap-[1rem] lg:gap-[calc(40px)]">
             {blogs.map((i, key) => {

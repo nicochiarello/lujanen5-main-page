@@ -26,8 +26,8 @@ export const Slider = ({category}) => {
     }
   };
   return (
-    <section className="w-full h-fit bg-white px-3 relative py-4 rounded-lg">
-      <div className="w-full  text-[calc(22px)] py-4 font-semibold">
+    <section className="w-full h-fit bg-white px-3 relative py-2 md:py-4 rounded-lg">
+      <div className="w-full text-[20px]  md:text-[calc(22px)] py-4 font-semibold">
         {category.title}
       </div>
       <div className="h-full flex items-center justify-center absolute top-0 left-0 z-20 ">
@@ -40,7 +40,7 @@ export const Slider = ({category}) => {
       </div>
       <div
         ref={referencia}
-        className="w-full flex gap-3 overflow-x-scroll scroll-smooth scrollbar-hide py-4"
+        className="w-full flex gap-3 overflow-x-scroll scroll-smooth scrollbar-hide py-1 md:py-4"
       >
         {category.blogs.map((i)=>{
           return(
@@ -50,7 +50,7 @@ export const Slider = ({category}) => {
               width="300"
               height="200"
               alt={i.img}
-              className="h-[calc(180px)] w-full object-cover"
+              className="h-[calc(140px)] md:h-[calc(180px)] w-full object-cover"
             />
             <div className="px-[calc(10px)] py-2 flex flex-col gap-3">
               <span className=" font-semibold text-[calc(15px)] text-gray-500">

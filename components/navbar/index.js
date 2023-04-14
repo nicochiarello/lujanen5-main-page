@@ -8,6 +8,8 @@ const Navbar = ({ category }) => {
   const [categories, setCategories] = useState([]);
   const element = useRef();
 
+  console.log({category})
+
   useEffect(() => {
     axios
       .get(`${process.env.NEXT_PUBLIC_API_URI}/api/categories/all`)
@@ -27,14 +29,14 @@ const Navbar = ({ category }) => {
           Luján en 5<span className="main-color">’</span>{" "}
         </Link>
         <nav
-          className="w-full overflow-x-scroll"
+          className="w-full overflow-x-scroll max-w-[1280px] scrollbar-hide px-2"
           ref={element}
           onWheel={(e) => {
             element.current.scrollLeft =
               element.current.scrollLeft + e.deltaY + e.deltaX;
           }}
         >
-          <ul className="flex min-w-full w-fit px-4 whitespace-nowrap m-auto gap-10 items-center  text-[calc(18px)] justify-center bg-white py-4  border-t-[calc(0.5px)] line">
+          <ul className="flex min-w-full w-fit px-4 whitespace-nowrap m-auto gap-10 items-center  text-[calc(18px)] justify-center py-4  border-t-[calc(0.5px)] line ">
             <Link
               href={"/"}
               className={

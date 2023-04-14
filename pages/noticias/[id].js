@@ -14,17 +14,17 @@ const SinglePage = ({ blog, latest }) => {
         <title>{blog.title}</title>
       </Head>
 
-      <Navbar />
+      <Navbar category={blog.category._id || null} />
 
-      <section className="max-w-[calc(900px)] relative h-fit m-auto overflow-hidden">
+      <section className="max-w-[calc(1020px)] px-2 md:px-0 relative h-fit m-auto overflow-hidden">
         <p className="mt-5 w-fit font-semibold px-6 text-white bg-red-600 flex justify-between">
           <span className="">{blog.category?.title}</span>{" "}
         </p>
 
-        <h3 className="text-[calc(42px)] font-semibold leading-[45px] mb-5 mt-1">
+        <h3 className="text-[28px] md:text-[calc(42px)] font-semibold md:leading-[45px] mb-5 mt-1">
           {blog.title}
         </h3>
-        <p className="text-2xl my-2">{blog.copete}</p>
+        <p className="text-xl md:text-2xl my-2">{blog.copete}</p>
         <Image
           width={800}
           height={900}
@@ -36,12 +36,12 @@ const SinglePage = ({ blog, latest }) => {
           {formatDate(blog.createdAt)}
         </p>
         <div className="w-full text-xl font-serif font-light flex ">
-          <div className="w-full max-w-[700px] py-5 leading-[28px]">
+          <div className="w-full max-w-[700px] h-fit py-5 flex flex-col gap-2 leading-[28px]">
             {parse(blog.body)}
           </div>
         </div>
       </section>
-      <div className="my-6 w-full max-w-[900px] m-auto">
+      <div className="my-6 w-full max-w-[1020px] m-auto">
         <Slider category={latest} />
       </div>
       <Footer />
