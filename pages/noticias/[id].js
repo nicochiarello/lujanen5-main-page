@@ -19,7 +19,7 @@ const SinglePage = ({ blog, latest }) => {
         />
         <meta
           property="og:image"
-          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img}`}
+          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img.replace("http", "https")}`}
         />
         <meta
           property="og:type"
