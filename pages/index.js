@@ -14,6 +14,7 @@ export default function Home({ latest, categories }) {
     <div>
       <Head>
         <title>Luján en 5&apos; </title>
+        <meta name="description" content="Diario informativo sobre Mendoza, Luján de Cuyo y mucho mas" key="desc" />
       </Head>
 
       <div className="w-full flex justify-center flex-col items-center bg-gray-200">

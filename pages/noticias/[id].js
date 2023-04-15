@@ -12,6 +12,15 @@ const SinglePage = ({ blog, latest }) => {
     <div className="bg-gray-200">
       <Head>
         <title>{blog.title}</title>
+        <meta name="description" content={`${blog.copete}`} key="desc" />
+        <meta
+          property="og:description"
+          content={`${blog.copete}`}
+        />
+        <meta
+          property="og:image"
+          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img}`}
+        />
       </Head>
 
       <Navbar category={blog.category._id || null} />
