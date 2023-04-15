@@ -21,6 +21,10 @@ const SinglePage = ({ blog, latest }) => {
           property="og:image"
           content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img}`}
         />
+        <meta
+          property="og:type"
+          content="article"
+        />
       </Head>
 
       <Navbar category={blog.category._id || null} />
