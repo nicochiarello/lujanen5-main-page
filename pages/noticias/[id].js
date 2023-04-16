@@ -12,19 +12,17 @@ const SinglePage = ({ blog, latest }) => {
     <div className="bg-gray-200">
       <Head>
         <title>{blog.title}</title>
-        <meta name="description" content={`${blog.copete}`} key="desc" />
+        <meta name="og:title" content={blog.title} />
+        <meta name="og:type" content="article" />
         <meta
-          property="og:description"
-          content={`${blog.copete}`}
+          name="og:url"
+          content={`https://www.lujanen5.com/noticias/${blog._id}`}
         />
         <meta
-          property="og:image"
-          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img.replace("http", "https")}`}
+          name="og:image"
+          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img}`}
         />
-        <meta
-          property="og:type"
-          content="article"
-        />
+        <meta name="og:description" content={blog.copete} />
       </Head>
 
       <Navbar category={blog.category._id || null} />
