@@ -38,7 +38,7 @@ export default function Home({ latest, categories }) {
                   {formatDate(latest[0].createdAt)}
                 </span>
                 <p className="font-bold text-[calc(28px)] text-white pr-10">
-                  {formatString(latest[0].title, false)}
+                  {latest[0].title}
                 </p>
               </div>
             </article>
