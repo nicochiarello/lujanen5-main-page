@@ -2,13 +2,13 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import axios from "axios";
+import ScrollContainer from "react-indiana-drag-scroll";
 
 const Navbar = ({ category }) => {
   const router = useRouter();
   const [categories, setCategories] = useState([]);
   const element = useRef();
 
-  console.log({category})
 
   useEffect(() => {
     axios
@@ -28,38 +28,43 @@ const Navbar = ({ category }) => {
         >
           Luján en 5<span className="main-color">’</span>{" "}
         </Link>
+
         <nav
           className="w-full overflow-x-scroll max-w-[1280px] scrollbar-hide px-2"
-          ref={element}
-          onWheel={(e) => {
-            element.current.scrollLeft =
-              element.current.scrollLeft + e.deltaY + e.deltaX;
-          }}
+
+          // onWheel={(e) => {
+          //   e.preventDefault();
+          //   element.current.scrollLeft =
+          //     element.current.scrollLeft + e.deltaY + e.deltaX;
+          // }}
         >
-          <ul className="flex min-w-full w-fit px-4 whitespace-nowrap m-auto gap-10 items-center  text-[calc(18px)] justify-center py-4  border-t-[calc(0.5px)] line ">
-            <Link
-              href={"/"}
-              className={
-                router.asPath === "/" && "main-color border-main cursor-pointer"
-              }
-            >
-              Inicio
-            </Link>
-            {categories.map((i) => {
-              return (
-                <Link
-                  href={`/categoria/${i._id}`}
-                  key={i._id}
-                  className={
-                    i._id === category &&
-                    "main-color border-main cursor-pointer flex-nowrap "
-                  }
-                >
-                  {i.title}
-                </Link>
-              );
-            })}
-          </ul>
+          <ScrollContainer>
+            <ul className="flex min-w-full w-fit px-4 whitespace-nowrap m-auto gap-10 items-center  text-[calc(18px)] justify-center py-4  border-t-[calc(0.5px)] line ">
+              <Link
+                href={"/"}
+                className={
+                  router.asPath === "/" &&
+                  "main-color border-main cursor-pointer"
+                }
+              >
+                Inicio
+              </Link>
+              {categories.map((i) => {
+                return (
+                  <Link
+                    href={`/categoria/${i._id}`}
+                    key={i._id}
+                    className={
+                      i._id === category &&
+                      "main-color border-main cursor-pointer flex-nowrap "
+                    }
+                  >
+                    {i.title}
+                  </Link>
+                );
+              })}
+            </ul>
+          </ScrollContainer>
         </nav>
       </div>
     </header>
