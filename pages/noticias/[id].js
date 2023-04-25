@@ -7,7 +7,7 @@ import Navbar from "../../components/navbar";
 import Slider from "../../components/react-slider";
 import Footer from "../../components/footer/Footer";
 
-const SinglePage = ({ blog, latest }) => {
+const SinglePage = ({ blog, latest, categories }) => {
   return (
     <div className="bg-gray-200">
       <Head>
@@ -25,7 +25,7 @@ const SinglePage = ({ blog, latest }) => {
         <meta name="og:description" content={blog.copete} />
       </Head>
 
-      <Navbar category={blog.category._id || null} />
+      <Navbar category={blog.category._id || null} categories={categories} />
 
       <section className="max-w-[calc(1020px)] px-2 md:px-0 relative h-fit m-auto overflow-hidden">
         <p className="mt-5 w-fit font-semibold px-6 text-white bg-red-600 flex justify-between">
@@ -66,10 +66,17 @@ export async function getServerSideProps(context) {
   );
   const data = await getSingleItem.json();
 
+  const getCategories = await fetch(
+    `${process.env.API_URI}/api/categories/all`
+  );
+
+  const categoriesData = await getCategories.json();
+
   return {
     props: {
       blog: data.blog,
       latest: data.latest,
+      categories: categoriesData.categories
     },
   };
 }

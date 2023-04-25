@@ -4,20 +4,20 @@ import Link from "next/link";
 import axios from "axios";
 import ScrollContainer from "react-indiana-drag-scroll";
 
-const Navbar = ({ category }) => {
+const Navbar = ({ category, categories }) => {
   const router = useRouter();
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
   const element = useRef();
 
 
-  useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URI}/api/categories/all`)
-      .then((res) => {
-        setCategories(res.data.categories);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+  // useEffect(() => {
+  //   axios
+  //     .get(`${process.env.NEXT_PUBLIC_API_URI}/api/categories/all`)
+  //     .then((res) => {
+  //       setCategories(res.data.categories);
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, []);
 
   return (
     <header className="w-full h-fit flex justify-center shadow-lg">

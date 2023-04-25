@@ -8,12 +8,12 @@ import { formatDate } from "../../utils/format-date";
 import formatString from "../../utils/format-string";
 import { useRouter } from "next/router";
 
-const Category = ({ category }) => {
+const Category = ({ category, categories }) => {
   const [page, setPage] = useState(1);
   const [nbPages, setNbPages] = useState(1);
   const [blogs, setBlogs] = useState([]);
   const [loader, setLoader] = useState(true);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     setPage(1);
@@ -80,7 +80,7 @@ const Category = ({ category }) => {
         <title>{category.title}</title>
       </Head>
 
-      <Navbar category={category._id} />
+      <Navbar category={category._id} categories={categories} />
       <div className="flex-1 bg-gray-200">
         <section className="w-full max-w-[1280px] m-auto h-fit justify-center py-10 flex-col flex items-center gap-16 ">
           {" "}
@@ -163,9 +163,16 @@ export async function getServerSideProps(context) {
   );
   const data = await getCategory.json();
 
+  const getCategories = await fetch(
+    `${process.env.API_URI}/api/categories/all`
+  );
+
+  const categoriesData = await getCategories.json();
+
   return {
     props: {
       category: data.category,
+      categories: categoriesData.categories,
     },
   };
 }
