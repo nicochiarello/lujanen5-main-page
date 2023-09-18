@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import React, { useRef } from "react";
 import { formatDate } from "../../utils/format-date";
-import formatString from '../../utils/format-string'
 import Image from "next/image";
+import SliderCard from "./SliderCard";
 
-export const Slider = ({category}) => {
-  const router = useRouter()
+export const Slider = ({ category }) => {
+  const router = useRouter();
   const referencia = useRef();
   const scrollLeft = () => {
     if (referencia.current.scrollLeft === 0) {
@@ -42,30 +42,9 @@ export const Slider = ({category}) => {
         ref={referencia}
         className="w-full flex gap-3 overflow-x-scroll scroll-smooth scrollbar-hide py-1 md:py-4"
       >
-        {category.blogs.map((i)=>{
-          return(
-            <article onClick={()=> router.push(`/noticias/${i._id}`)} key={i.id} className="w-[calc(280px)] h-[calc(300px)] bg-white rounded-md shadow-md overflow-hidden shrink-0 cursor-pointer">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_IMG_URI}/${i.img}`}
-              width="300"
-              height="200"
-              alt={i.img}
-              className="h-[calc(140px)] md:h-[calc(180px)] w-full object-cover"
-            />
-            <div className="px-[calc(10px)] py-2 flex flex-col gap-3">
-              <span className=" font-semibold text-[calc(15px)] text-gray-500">
-                {formatDate(i.createdAt)}
-              </span>
-              <p className="font-bold text-[calc(20px)]">
-                {formatString(
-                  i.title
-                )}
-              </p>
-            </div>
-          </article>
-          )
+        {category.blogs.map((i) => {
+          return <SliderCard key={i.id} blog={i} />;
         })}
-        
       </div>
       <div className="h-full flex items-center justify-center absolute top-0 right-0 z-20 px-1 ">
         <div

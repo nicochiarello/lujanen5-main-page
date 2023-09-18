@@ -20,7 +20,7 @@ const SinglePage = ({ blog, latest, categories }) => {
         />
         <meta
           name="og:image"
-          content={`${process.env.NEXT_PUBLIC_IMG_URI.replace("http", "https")}/${blog.img}`}
+          content={`${process.env.NEXT_PUBLIC_IMG_URI}/${blog.img}`}
         />
         <meta name="og:description" content={blog.copete} />
       </Head>
